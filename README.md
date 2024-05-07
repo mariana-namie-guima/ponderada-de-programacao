@@ -11,6 +11,18 @@
 - Descrição: Criação de um banco de dados relacional que indica as entidades, seus atributos e relações dentro do site que será desenvolvido para a ZUYD
 - Ferramenta de diagramação: SQL Designer
 
+## Relações de cardinalidade
+
+### 1. estudante_conta e perfil_estudante_conta
+### 2. estudante_conta e grupos
+### 3. estudante_conta e ticket
+### 4. estudante_conta e autoavaliação
+### 5. estudante_conta e avaliação de pares
+### 6. autoavaliação e feedback
+### 7. avaliação de pares e feedback
+### 8. conta_tutor e feedback
+### 9. conta_tutor e tickets
+### 10. tutor_conta e grupos
 
 
 ## Banco em XML
