@@ -1,8 +1,8 @@
 # Modelo de Banco de Dados Relacional
 
 <div align="center">
-<sub>Figura 1 - Design de arquitetura</sub>
-<img src="https://github.com/mariana-namie-guima/design-de-arquitetura/blob/main/design_de_arquitetura.drawio.png">
+<sub>Figura 1 - Modelo de banco de dados</sub>
+<img src="modelo_de_banco_de_dados.png">
 <sup>Fonte: Material produzido pelos autores (2024)</sup>
 </div>
 
