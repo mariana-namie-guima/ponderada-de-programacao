@@ -11,18 +11,42 @@
 - Descrição: Criação de um banco de dados relacional que indica as entidades, seus atributos e relações dentro do site que será desenvolvido para a ZUYD
 - Ferramenta de diagramação: SQL Designer
 
+## Explicação das telas e entidades
+Na tela de cadastro serão coletados dados pessoais, como nome, nacionalidade, email, senha, etc. Dependendo do tipo de conta (estudande ou tutor), os dados irão para a entidade estudante_conta ou tutor_conta. O estudante terá a oportunidade de adicionar informações extras posteriormente ao seu cadastro, as quais ficarão armazenadas na entidade perfil_estudante_extra.
+
+
+
 ## Relações de cardinalidade
 
-### 1. estudante_conta e perfil_estudante_conta
-### 2. estudante_conta e grupos
-### 3. estudante_conta e ticket
-### 4. estudante_conta e autoavaliação
-### 5. estudante_conta e avaliação de pares
-### 6. autoavaliação e feedback
-### 7. avaliação de pares e feedback
-### 8. conta_tutor e feedback
-### 9. conta_tutor e tickets
-### 10. tutor_conta e grupos
+### 1. estudante_conta (1:1) e perfil_estudante_conta (0:1)
+Para cada conta de estudante criada há nenhuma ou uma área que o usuário pode preencher informações extras sobre seu perfil.
+
+### 2. estudante_conta (1:N) e grupos (1:1)
+Para um, e somente um, grupo há um ou muitos estudantes. Mas cada estudante só pertence a um grupo.
+
+### 3. estudante_conta (1:N) e ticket (0:M)
+Um ou muitos estudantes podem ter nenhum ou vários tickets em que são mencionados. 
+
+### 4. estudante_conta (1:N) e autoavaliação (1:M)
+Um ou muitos estudantes podem realizar uma ou muitas autoavaliações. Muitas ou uma autoavaliação podem ter sido realizadas por um ou muitos alunos.
+
+### 5. estudante_conta (1:N) e avaliação de pares (1:M)
+Um ou muitos estudantes podem realizar uma ou muitas avaliações de pares. Muitas ou uma avaliação de pares podem ter sido realizadas por um ou muitos alunos.
+
+### 6. autoavaliação (1:N) e feedback (1:M)
+Uma ou muitas autoavaliações resultam em um ou vários feedbacks.
+
+### 7. avaliação de pares (1:N) e feedback (1:M)
+Uma ou muitas avaliações de pares resultam em um ou vários feedbacks.
+
+### 8. conta_tutor (1:1) e feedback (1:N)
+Um, e somente um, tutor pode acessar um ou vários feedbacks. Todos os feedbacks só podem ser vizualizados por um único tutor.
+
+### 9. conta_tutor (1:1) e tickets (1:N)
+Um e apenas um tutor pode ser acesso há um ou muitos tickets. 
+
+### 10. tutor_conta (1:1) e grupos (1:N)
+Um e apenas um tutor pode ser responsável por um ou muitos grupos. Assim, todos os grupos tem apenas um tutor.
 
 
 ## Banco em XML
