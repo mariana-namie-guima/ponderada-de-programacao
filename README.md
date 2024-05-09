@@ -12,7 +12,54 @@
 - Ferramenta de diagramação: SQL Designer
 
 ## Explicação das telas e entidades
-Na tela de cadastro serão coletados dados pessoais, como nome, nacionalidade, email, senha, etc. Dependendo do tipo de conta (estudande ou tutor), os dados irão para a entidade estudante_conta ou tutor_conta. O estudante terá a oportunidade de adicionar informações extras posteriormente ao seu cadastro, as quais ficarão armazenadas na entidade perfil_estudante_extra.
+
+### Tela de cadastro
+Na tela de cadastro serão coletados dados pessoais, como nome, nacionalidade, email, senha, etc. Dependendo do tipo de conta (estudande ou tutor), os dados irão para a entidade estudante_conta ou tutor_conta. A tela de cadastro possui duas entidades:
+
+#### 1. Estudante_conta
+- Id
+- Nome
+- Sobrenome
+- Idade
+- Gênero
+- Nacionalidade
+- Grupo
+- Email
+- Senha
+
+#### 2. Tutor_perfil
+- Id
+- Nome
+- Sobrenome
+- Nacionalidade
+- Email
+- Senha
+- Id_grupos: possui informações sobre quais grupos está tutorando
+- Id_feedback: informações sobre todos os feedbakcs preenchidos
+- Id_tickets: informação sobre quais tickets foram abertos, a fim de monitorar os conflitos entre os membros de cada grupo
+
+### Tela de perfil do estudante
+O estudante terá a oportunidade de adicionar informações extras posteriormente ao seu cadastro, as quais ficarão armazenadas na entidade perfil_estudante_extra. Essa entidade possui os seguintes atributos:
+
+- Id
+- Id_usuário_estudante
+- Bio
+- Instagram
+- LinkedIn
+- Snapchat
+- WhatsApp
+
+Na tela de perfil também há informações sobre o grupo do usuário e os seus colegas. Tais informações são armazenas na entidade grupos, a qual é composta pelos atributos:
+
+- Id
+- Id_membros: armazena id dos estudantes
+- Nome_do_grupo: armazena nome dos grupos
+
+### Tela perfil do tutor
+
+  
+### Tela 
+
 
 
 
