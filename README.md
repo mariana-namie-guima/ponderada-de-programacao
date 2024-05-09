@@ -8,7 +8,7 @@
 
 ## Descrição
 - Nome do Projeto: WebCulture
-- Descrição: Criação de um banco de dados relacional que indica as entidades, seus atributos e relações dentro do site que será desenvolvido para a ZUYD
+- Descrição: Criação de um banco de dados relacional que indica as entidades, seus atributos e relações dentro do site que será desenvolvido para integrar os estudantes que estão jogando o game Cesim Global Challenge.
 - Ferramenta de diagramação: SQL Designer
 
 ## Explicação das telas e entidades
@@ -38,6 +38,7 @@
 - Id_feedback: informações sobre todos os feedbakcs preenchidos
 - Id_tickets: informação sobre quais tickets foram abertos, a fim de monitorar os conflitos entre os membros de cada grupo
 
+
 ### Tela de perfil do estudante
 &nbsp;&nbsp;&nbsp;&nbsp;O estudante terá a oportunidade de adicionar informações extras posteriormente ao seu cadastro, as quais ficarão armazenadas na entidade perfil_estudante_extra. Essa entidade possui os seguintes atributos:
 
@@ -55,19 +56,24 @@
 - Id_membros: armazena id dos estudantes
 - Nome_do_grupo: armazena nome dos grupos
 
+
 ### Tela de avaliações
 &nbsp;&nbsp;&nbsp;&nbsp;Nessa tela, todas as respostas inputados na autoavaliação serão armazenados na entidade "autoavaliação", mais espeficifcamente nos atributos reposta_1 a resposta_6. Além disso, junto dessas informações será obtido o id do usuário, que é uma chave estrangeira derivada do atributo "estudante_conta".
 
 &nbsp;&nbsp;&nbsp;&nbsp;Já no formulário de avaliação de pares, os dados serão armazenados na entidade "avaliação de pares", sendo as respostas armazenadas nos atributos resposta_1 a resposta_5. Por fim, será obtido o id do usuário que preencheu o formulário e o id do estudante que foi avaliado, sendo ambos chaves estrangeiras da entidade "estudante_conta".
 
+
 ### Tela de feedback
 &nbsp;&nbsp;&nbsp;&nbsp;Nessa tela, será disponibilizado um gráfico com a comparação dos resultados da autoavaliação e da avaliação de pares. Assim, os atributos "id_autoavalicao" e "id_avaliacao_de_pares" são chaves estrangeiras derivadas das entidades "autoavaliação" e "avaliação de pares", respectivamente; uma vez que é necessário ter os resultados desses testes para fazer a comparação.
+
 
 ### Tela de tickets
 &nbsp;&nbsp;&nbsp;&nbsp;Os tickets são formas de indicar a ocorrência de algum conflito e mencionar as pessoas envolvidas, a fim de resolver problemas rapidamente e melhorar aa comunicação do time. Essa tela guarda as informações na entidade "ticket", que possui duas chaves estrangeiras chamadas "id_estudante_abriu_ticket" e "id_estudante_problema", as quais indicam quem abriu o ticket e quem foi mencionado. Além disso, essa entidade possui os atributos "assunto" e "status_resolução", que indica se o ticket já foi ou não resolvido.
 
+
 ### Tela de perfil do tutor
 &nbsp;&nbsp;&nbsp;&nbsp; Nessa tela, aparecerão os dados que foram digitados durante o cadastros. Ainda há as chaves estrangeiras "id_grupos", "id_feedbacks" e "id_ticket, para que o tutor saiba quais grupos ele está tutorando, quais foram os feedbacks escritos e o tickets abertos.
+
 
 ## Relações de cardinalidade
 
