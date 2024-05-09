@@ -57,6 +57,7 @@
 
 ### Tela de avaliações
 &nbsp;&nbsp;&nbsp;&nbsp;Nessa tela, todas as respostas inputados na autoavaliação serão armazenados na entidade "autoavaliação", mais espeficifcamente nos atributos reposta_1 a resposta_6. Além disso, junto dessas informações será obtido o id do usuário, que é uma chave estrangeira derivada do atributo "estudante_conta".
+
 &nbsp;&nbsp;&nbsp;&nbsp;Já no formulário de avaliação de pares, os dados serão armazenados na entidade "avaliação de pares", sendo as respostas armazenadas nos atributos resposta_1 a resposta_5. Por fim, será obtido o id do usuário que preencheu o formulário e o id do estudante que foi avaliado, sendo ambos chaves estrangeiras da entidade "estudante_conta".
 
 ### Tela de feedback
