@@ -14,7 +14,7 @@
 ## Explicação das telas e entidades
 
 ### Tela de cadastro
-Na tela de cadastro serão coletados dados pessoais, como nome, nacionalidade, email, senha, etc. Dependendo do tipo de conta (estudande ou tutor), os dados irão para a entidade estudante_conta ou tutor_conta. A tela de cadastro possui duas entidades:
+&nbsp;&nbsp;&nbsp;&nbsp;Na tela de cadastro serão coletados dados pessoais, como nome, nacionalidade, email, senha, etc. Dependendo do tipo de conta (estudande ou tutor), os dados irão para a entidade estudante_conta ou tutor_conta. A tela de cadastro possui duas entidades:
 
 #### 1. Estudante_conta
 - Id
@@ -39,7 +39,7 @@ Na tela de cadastro serão coletados dados pessoais, como nome, nacionalidade, e
 - Id_tickets: informação sobre quais tickets foram abertos, a fim de monitorar os conflitos entre os membros de cada grupo
 
 ### Tela de perfil do estudante
-O estudante terá a oportunidade de adicionar informações extras posteriormente ao seu cadastro, as quais ficarão armazenadas na entidade perfil_estudante_extra. Essa entidade possui os seguintes atributos:
+&nbsp;&nbsp;&nbsp;&nbsp;O estudante terá a oportunidade de adicionar informações extras posteriormente ao seu cadastro, as quais ficarão armazenadas na entidade perfil_estudante_extra. Essa entidade possui os seguintes atributos:
 
 - Id
 - Id_usuário_estudante
@@ -49,51 +49,56 @@ O estudante terá a oportunidade de adicionar informações extras posteriorment
 - Snapchat
 - WhatsApp
 
-Na tela de perfil também há informações sobre o grupo do usuário e os seus colegas. Tais informações são armazenas na entidade grupos, a qual é composta pelos atributos:
+&nbsp;&nbsp;&nbsp;&nbsp;Na tela de perfil também há informações sobre o nome dos grupos e o id dos membros, o qual é uma chave estrangeira da entidade "estudante conta".Tais informações são armazenas na entidade grupos, a qual é composta pelos atributos:
 
 - Id
 - Id_membros: armazena id dos estudantes
 - Nome_do_grupo: armazena nome dos grupos
 
-### Tela perfil do tutor
+### Tela de avaliações
+&nbsp;&nbsp;&nbsp;&nbsp;Nessa tela, todas as respostas inputados na autoavaliação serão armazenados na entidade "autoavaliação", mais espeficifcamente nos atributos reposta_1 a resposta_6. Além disso, junto dessas informações será obtido o id do usuário, que é uma chave estrangeira derivada do atributo "estudante_conta".
+&nbsp;&nbsp;&nbsp;&nbsp;Já no formulário de avaliação de pares, os dados serão armazenados na entidade "avaliação de pares", sendo as respostas armazenadas nos atributos resposta_1 a resposta_5. Por fim, será obtido o id do usuário que preencheu o formulário e o id do estudante que foi avaliado, sendo ambos chaves estrangeiras da entidade "estudante_conta".
 
-  
-### Tela 
+### Tela de feedback
+&nbsp;&nbsp;&nbsp;&nbsp;Nessa tela, será disponibilizado um gráfico com a comparação dos resultados da autoavaliação e da avaliação de pares. Assim, os atributos "id_autoavalicao" e "id_avaliacao_de_pares" são chaves estrangeiras derivadas das entidades "autoavaliação" e "avaliação de pares", respectivamente; uma vez que é necessário ter os resultados desses testes para fazer a comparação.
 
+### Tela de tickets
+&nbsp;&nbsp;&nbsp;&nbsp;Os tickets são formas de indicar a ocorrência de algum conflito e mencionar as pessoas envolvidas, a fim de resolver problemas rapidamente e melhorar aa comunicação do time. Essa tela guarda as informações na entidade "ticket", que possui duas chaves estrangeiras chamadas "id_estudante_abriu_ticket" e "id_estudante_problema", as quais indicam quem abriu o ticket e quem foi mencionado. Além disso, essa entidade possui os atributos "assunto" e "status_resolução", que indica se o ticket já foi ou não resolvido.
 
-
+### Tela de perfil do tutor
+&nbsp;&nbsp;&nbsp;&nbsp; Nessa tela, aparecerão os dados que foram digitados durante o cadastros. Ainda há as chaves estrangeiras "id_grupos", "id_feedbacks" e "id_ticket, para que o tutor saiba quais grupos ele está tutorando, quais foram os feedbacks escritos e o tickets abertos.
 
 ## Relações de cardinalidade
 
 ### 1. estudante_conta (1:1) e perfil_estudante_conta (0:1)
-Para cada conta de estudante criada há nenhuma ou uma área que o usuário pode preencher informações extras sobre seu perfil.
+&nbsp;&nbsp;&nbsp;&nbsp;Para cada conta de estudante criada há nenhuma ou uma área que o usuário pode preencher informações extras sobre seu perfil.
 
 ### 2. estudante_conta (1:N) e grupos (1:1)
-Para um, e somente um, grupo há um ou muitos estudantes. Mas cada estudante só pertence a um grupo.
+&nbsp;&nbsp;&nbsp;&nbsp;Para um, e somente um, grupo há um ou muitos estudantes. Mas cada estudante só pertence a um grupo.
 
 ### 3. estudante_conta (1:N) e ticket (0:M)
-Um ou muitos estudantes podem ter nenhum ou vários tickets em que são mencionados. 
+&nbsp;&nbsp;&nbsp;&nbsp;Um ou muitos estudantes podem ter nenhum ou vários tickets em que são mencionados. 
 
 ### 4. estudante_conta (1:N) e autoavaliação (1:M)
-Um ou muitos estudantes podem realizar uma ou muitas autoavaliações. Muitas ou uma autoavaliação podem ter sido realizadas por um ou muitos alunos.
+&nbsp;&nbsp;&nbsp;&nbsp;Um ou muitos estudantes podem realizar uma ou muitas autoavaliações. Muitas ou uma autoavaliação podem ter sido realizadas por um ou muitos alunos.
 
 ### 5. estudante_conta (1:N) e avaliação de pares (1:M)
-Um ou muitos estudantes podem realizar uma ou muitas avaliações de pares. Muitas ou uma avaliação de pares podem ter sido realizadas por um ou muitos alunos.
+&nbsp;&nbsp;&nbsp;&nbsp;Um ou muitos estudantes podem realizar uma ou muitas avaliações de pares. Muitas ou uma avaliação de pares podem ter sido realizadas por um ou muitos alunos.
 
 ### 6. autoavaliação (1:N) e feedback (1:M)
-Uma ou muitas autoavaliações resultam em um ou vários feedbacks.
+&nbsp;&nbsp;&nbsp;&nbsp;Uma ou muitas autoavaliações resultam em um ou vários feedbacks.
 
 ### 7. avaliação de pares (1:N) e feedback (1:M)
-Uma ou muitas avaliações de pares resultam em um ou vários feedbacks.
+&nbsp;&nbsp;&nbsp;&nbsp;Uma ou muitas avaliações de pares resultam em um ou vários feedbacks.
 
 ### 8. conta_tutor (1:1) e feedback (1:N)
-Um, e somente um, tutor pode acessar um ou vários feedbacks. Todos os feedbacks só podem ser vizualizados por um único tutor.
+&nbsp;&nbsp;&nbsp;&nbsp;Um, e somente um, tutor pode acessar um ou vários feedbacks. Todos os feedbacks só podem ser vizualizados por um único tutor.
 
 ### 9. conta_tutor (1:1) e tickets (1:N)
-Um e apenas um tutor pode ser acesso há um ou muitos tickets. 
+&nbsp;&nbsp;&nbsp;&nbsp;Um e apenas um tutor pode ser acesso há um ou muitos tickets. 
 
 ### 10. tutor_conta (1:1) e grupos (1:N)
-Um e apenas um tutor pode ser responsável por um ou muitos grupos. Assim, todos os grupos tem apenas um tutor.
+&nbsp;&nbsp;&nbsp;&nbsp;Um e apenas um tutor pode ser responsável por um ou muitos grupos. Assim, todos os grupos tem apenas um tutor.
 
 
 ## Banco em XML
